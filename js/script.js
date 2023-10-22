@@ -1,0 +1,140 @@
+document.addEventListener('DOMContentLoaded', () => {
+  //todo  Slick Slider -- top
+  $('.top-slider__wrapper').slick({
+    centerMode: true,
+    centerPadding: '60px',
+    autoplay: true,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    arrows: false,
+    adaptiveHeight: true,
+    variableWidth: true,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          dots: true,
+          adaptiveHeight: true,
+          arrows: false,
+          centerMode: true,
+          centerPadding: '40px',
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          adaptiveHeight: true,
+          arrows: false,
+          dots: true,
+          centerMode: true,
+          centerPadding: '40px',
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  });
+
+  // todo slick-slider footer
+  if (window.innerWidth < 767) {
+    $('.footer__cards').slick({
+      centerMode: true,
+      centerPadding: '60px',
+      autoplay: true,
+      slidesToShow: 1,
+      slidesToScroll: 3,
+      arrows: false,
+      adaptiveHeight: true,
+      variableWidth: true,
+      responsive: [
+        {
+          breakpoint: 768,
+          settings: {
+            dots: true,
+            adaptiveHeight: true,
+            arrows: false,
+            centerMode: true,
+            centerPadding: '40px',
+            slidesToShow: 1,
+            slidesToScroll: 1,
+          },
+        },
+        {
+          breakpoint: 478,
+          settings: {
+            adaptiveHeight: true,
+            arrows: false,
+            dots: true,
+            centerMode: true,
+            centerPadding: '40px',
+            slidesToShow: 1,
+            slidesToScroll: 1,
+          },
+        },
+      ],
+    });
+  }
+
+  // todo Choices for select
+  const element = document.querySelector('.js-choice');
+  const choices = new Choices(element, {
+    searchEnabled: false,
+    itemSelectText: '',
+  });
+
+  //todo Modal
+
+  function showModal(triggerSelector, modalSelector, closeSelector) {
+    const trigger = document.querySelectorAll(triggerSelector);
+    const modal = document.querySelector(modalSelector);
+    const close = document.querySelector(closeSelector);
+    const body = document.querySelector('.body');
+    const wrapper = document.querySelector('.wrapper');
+    const bodyWidth = window.innerWidth - document.documentElement.clientWidth;
+
+    if (trigger.length > 0) {
+      trigger.forEach((item) => {
+        item.addEventListener('click', (e) => {
+          if (e.target) {
+            e.preventDefault();
+          }
+          modal.classList.add('open');
+        });
+      });
+    }
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal || e.target === close) {
+        modal.classList.remove('open');
+      }
+    });
+
+    window.addEventListener('keydown', (e) => {
+      if (e.code === 'Escape') {
+        modal.classList.remove('open');
+      }
+    });
+  }
+
+  function showModalByTime(selector, time) {
+    const timerId = setTimeout(() => {
+      document.querySelector(selector).classList.add('open');
+    }, time);
+  }
+
+  showModal('.header__button', '.modal', '.modal__close');
+
+  // todo Open burger menu
+
+  const burgerBtn = document.querySelector('.header__button-mobile');
+  const headerMenu = document.querySelector('.header__menu');
+  const burger = document.querySelector('.burger');
+
+  burgerBtn.addEventListener('click', () => {
+    burger.classList.toggle('active');
+    headerMenu.classList.toggle('open');
+    document.body.classList.toggle('open');
+  });
+});
