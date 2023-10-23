@@ -447,7 +447,7 @@ body {
 }
 
 .top-slider__link {
-  background-image: url('img/books-slider.png');
+  background-image: url('../img/books-slider.png');
   background-repeat: no-repeat;
   background-position: center center;
   padding: 165px 369px;
@@ -1164,7 +1164,7 @@ body {
 }
 
 .top-slider__link {
-  background-image: url('img/books-slider-1.png');
+  background-image: url('../img/books-slider-1.png');
   background-repeat: no-repeat;
   background-position: center center;
   padding: 165px 148px;
@@ -1245,7 +1245,7 @@ body {
 
 @media screen and (max-width: 375px) {
 .top-slider__link {
-  background-image: url('img/books-slider-1.png');
+  background-image: url('../img/books-slider-1.png');
   background-repeat: no-repeat;
   background-position: center center;
   padding: 156px 148px;
