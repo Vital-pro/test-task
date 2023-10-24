@@ -85,7 +85,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   //todo Modal
-
   function showModal(triggerSelector, modalSelector, closeSelector) {
     const trigger = document.querySelectorAll(triggerSelector);
     const modal = document.querySelector(modalSelector);
@@ -130,11 +129,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const burgerBtn = document.querySelector('.header__button-mobile');
   const headerMenu = document.querySelector('.header__menu');
-  const burger = document.querySelector('.burger');
 
-  burgerBtn.addEventListener('click', () => {
-    burger.classList.toggle('active');
-    headerMenu.classList.toggle('open');
-    document.body.classList.toggle('open');
+  if (burgerBtn && headerMenu) {
+    burgerBtn.addEventListener('click', () => {
+      headerMenu.classList.toggle('open');
+      burgerBtn.classList.toggle('active');
+      document.body.classList.toggle('hidden');
+    });
+  }
+
+  const headerButtonOpen = document.querySelector('.header__button');
+
+  const modalClose = document.querySelector('.modal__close');
+  // const modalOpen = document.querySelector('.modal.open');
+
+  if (headerButtonOpen && headerMenu) {
+    headerButtonOpen.addEventListener('click', () => {
+      headerMenu.classList.toggle('open');
+    });
+  }
+
+  modalClose.addEventListener('click', (e) => {
+    if (e.target === modalClose) {
+      burgerBtn.classList.remove('active');
+      document.body.classList.remove('hidden');
+    }
   });
 });

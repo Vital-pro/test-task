@@ -96,7 +96,7 @@ label {
 
 body {
   width: 100%;
-  height: 100%;
+  height: 100vh;
   font-family: 'Onest', sans-serif;
   font-size: var(--font-size);
   line-height: 1;
@@ -107,7 +107,7 @@ body {
 .wrapper {
   min-height: 100%;
   width: 100%;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -151,6 +151,7 @@ body {
   background-color: #fff;
   color: var(--color-fonts);
   position: relative;
+  margin: auto;
 }
 
 .modal__close {
@@ -228,8 +229,6 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* background-color: rgba(225, 225, 225, .9); */
-  /* box-shadow: 0px 18px 60px 0px rgba(0, 0, 0, 0.05); */
 }
 
 .header__logo {
@@ -242,7 +241,6 @@ body {
 
 .header__menu-list {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   gap: 35px;
 }
@@ -895,9 +893,6 @@ body {
   }
 
   /* * Header */
-  .header {
-    position: initial;
-  }
 
   .header__nav {
     align-items: flex-start;
@@ -909,8 +904,8 @@ body {
     right: 0;
     top: 0;
     flex-direction: column;
-    justify-content: space-around;
-    background-color: rgba(0, 0, 0, .7);
+    /* justify-content: space-around; */
+    /* background-color: rgba(32, 35, 38, .7); */
     z-index: 999;
     height: 50%;
     width: 50%;
@@ -919,18 +914,22 @@ body {
 
   .header__menu.open {
     transform: translateX(0%);
-    justify-content: flex-start;
+    /* justify-content: flex-start; */
+    background-color: rgba(32, 35, 38, .7);
     width: 60vw;
+    height: 100vh;
+    overflow: auto;
   }
 
-  .body.open {
+  .body.hidden {
     overflow: hidden;
   }
 
   .header__menu-list {
     padding: 50px 0;
     flex-direction: column;
-    gap: 40px;
+    font-size: 20px;
+    /* gap: 40px; */
   }
 
   .header__menu-link {
@@ -955,6 +954,7 @@ body {
   }
 
   .header__button {
+    font-size: 20px;
     width: 70%;
     margin: 0 auto;
   }
@@ -995,7 +995,7 @@ body {
   }
 
   .page {
-    padding-top: 50px;
+    padding-top: 16%;
   }
 
   /**Page top slader  */
@@ -1147,12 +1147,6 @@ body {
   }
 }
 
-@media screen and (max-width: 767px) and (orientation: landscape) {
-  .header__menu-list {
-    padding: 14px 0;
-    gap: 22px;
-  }
-}
 
 @media screen and (max-width: 479px) {
 .container {
@@ -1160,7 +1154,7 @@ body {
 }
 
 .page {
-  padding-top: 47px;
+  padding-top: 26%;
 }
 
 .top-slider__link {
