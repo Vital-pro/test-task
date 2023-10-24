@@ -89,9 +89,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const trigger = document.querySelectorAll(triggerSelector);
     const modal = document.querySelector(modalSelector);
     const close = document.querySelector(closeSelector);
-    const body = document.querySelector('.body');
-    const wrapper = document.querySelector('.wrapper');
-    const bodyWidth = window.innerWidth - document.documentElement.clientWidth;
 
     if (trigger.length > 0) {
       trigger.forEach((item) => {
@@ -117,12 +114,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  function showModalByTime(selector, time) {
-    const timerId = setTimeout(() => {
-      document.querySelector(selector).classList.add('open');
-    }, time);
-  }
-
   showModal('.header__button', '.modal', '.modal__close');
 
   // todo Open burger menu
@@ -139,9 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   const headerButtonOpen = document.querySelector('.header__button');
-
   const modalClose = document.querySelector('.modal__close');
-  // const modalOpen = document.querySelector('.modal.open');
 
   if (headerButtonOpen && headerMenu) {
     headerButtonOpen.addEventListener('click', () => {
