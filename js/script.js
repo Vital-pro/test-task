@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  //todo  Slick Slider -- top
+  //   Slick Slider -- top
   $('.top-slider__wrapper').slick({
     centerMode: true,
     centerPadding: '60px',
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ],
   });
 
-  // todo slick-slider footer
+  //  slick-slider footer
   if (window.innerWidth < 767) {
     $('.footer__cards').slick({
       centerMode: true,
@@ -77,18 +77,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // todo Choices for select
+  //  Choices for select
   const element = document.querySelector('.js-choice');
   const choices = new Choices(element, {
     searchEnabled: false,
     itemSelectText: '',
   });
 
-  //todo Modal
+  //  Modal
   function showModal(triggerSelector, modalSelector, closeSelector) {
     const trigger = document.querySelectorAll(triggerSelector);
     const modal = document.querySelector(modalSelector);
     const close = document.querySelector(closeSelector);
+    const burgerBtn = document.querySelector('.header__button-mobile');
 
     if (trigger.length > 0) {
       trigger.forEach((item) => {
@@ -104,19 +105,21 @@ document.addEventListener('DOMContentLoaded', () => {
     modal.addEventListener('click', (e) => {
       if (e.target === modal || e.target === close) {
         modal.classList.remove('open');
+        burgerBtn.classList.remove('active');
       }
     });
 
     window.addEventListener('keydown', (e) => {
       if (e.code === 'Escape') {
         modal.classList.remove('open');
+        burgerBtn.classList.remove('active');
       }
     });
   }
 
   showModal('.header__button', '.modal', '.modal__close');
 
-  // todo Open burger menu
+  //  Open burger menu
 
   const burgerBtn = document.querySelector('.header__button-mobile');
   const headerMenu = document.querySelector('.header__menu');
